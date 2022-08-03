@@ -1,0 +1,7 @@
+.main-container {
+	text-align: center;
+	border: black solid 0.3rem;
+	border-radius: 3rem;
+	background-color: rgb(232, 220, 166);
+	width: 80%;
+}

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SongList from "../components/SongList";
+import SongDetail from "../components/SongDetails";
+import "./chart.css";
 
 const ChartsContainer = () => {
 	const [songs, setSongs] = useState([]);
+	const [selectedSong, setSelectedSong] = useState(null);
 
 	useEffect(() => {
 		getSongs();
@@ -14,10 +17,16 @@ const ChartsContainer = () => {
 			.then((songs) => setSongs(songs.feed.entry));
 	};
 
+	const onSongClick = (song) => {
+		setSelectedSong(song);
+	};
+
 	return (
 		<>
+			{selectedSong ? <SongDetail song={selectedSong} /> : null}
+
 			<div className="main-container">
-				<SongList songs={songs} />
+				<SongList songs={songs} onSongClick={onSongClick} />
 			</div>
 		</>
 	);

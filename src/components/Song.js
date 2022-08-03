@@ -1,7 +1,12 @@
 import React from "react";
+import "./song.css";
 
-const Song = ({ song }) => {
-	return <li>{song.title.label}</li>;
+const Song = ({ song, onSongClick }) => {
+	const handleClick = () => {
+		onSongClick(song);
+	};
+
+	return <li onClick={handleClick}>{song.title.label}</li>;
 };
 
 export default Song;
